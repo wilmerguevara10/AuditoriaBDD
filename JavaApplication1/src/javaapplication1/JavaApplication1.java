@@ -5,6 +5,9 @@
  */
 package javaapplication1;
 
+import conexionSQL.Datosconexion;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edgar
@@ -16,6 +19,12 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    }
-    
+        
+        Datosconexion da = new Datosconexion();
+        if(da.probarconexion()==1){
+            JOptionPane.showMessageDialog(null, "conexiòn correcta");
+        }else{
+            JOptionPane.showMessageDialog(null, "conexiòn incorrecta");
+        }
+    }    
 }
