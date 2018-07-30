@@ -18,7 +18,7 @@ public class Conexion {
         Connection cn = null; 
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1","Edgar","lamia123");
+            cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1","sa","lamia1231719");
         }catch(Exception e){
             
         }
