@@ -23,9 +23,12 @@ public class JavaApplication1 {
         // TODO code application logic here
 
         Datosconexion da = new Datosconexion();
-        ToPDF pdf = new ToPDF();
+        GetListofQuery pdf = new GetListofQuery();
         pdf.getQuery1(da.probarconexion()).forEach(item -> {
             System.out.println("itemsQuery1:" + item.toString());
+        });
+        pdf.getQueryConstrains(da.probarconexion()).forEach(item -> {
+            System.out.println("itemsConstrains" + item.toString());
         });
 
     }
