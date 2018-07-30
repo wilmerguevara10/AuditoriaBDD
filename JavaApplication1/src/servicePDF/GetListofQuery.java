@@ -17,8 +17,62 @@ import java.util.ArrayList;
 import java.util.List;
 import referentialEnt.Query1;
 import referentialEnt.QueryConstrains;
+import referentialEnt.QueryTrigger;
 
 public class GetListofQuery {
+
+    public List<QueryTrigger> getTriggers(Connection con)
+            throws SQLException {
+        List<QueryTrigger> listQuery = new ArrayList<QueryTrigger>();
+        Statement stmt = null;
+        String query = "SELECT \n"
+                + "     sysobjects.name AS trigger_name \n"
+                + "    ,USER_NAME(sysobjects.uid) AS trigger_owner \n"
+                + "    ,s.name AS table_schema \n"
+                + "    ,OBJECT_NAME(parent_obj) AS table_name \n"
+                + "    ,OBJECTPROPERTY( id, 'ExecIsUpdateTrigger') AS isupdate \n"
+                + "    ,OBJECTPROPERTY( id, 'ExecIsDeleteTrigger') AS isdelete \n"
+                + "    ,OBJECTPROPERTY( id, 'ExecIsInsertTrigger') AS isinsert \n"
+                + "    ,OBJECTPROPERTY( id, 'ExecIsAfterTrigger') AS isafter \n"
+                + "    ,OBJECTPROPERTY( id, 'ExecIsInsteadOfTrigger') AS isinsteadof \n"
+                + "    ,OBJECTPROPERTY(id, 'ExecIsTriggerDisabled') AS [disabled] \n"
+                + "FROM sysobjects \n"
+                + "/*\n"
+                + "INNER JOIN sysusers \n"
+                + "    ON sysobjects.uid = sysusers.uid \n"
+                + "*/  \n"
+                + "INNER JOIN sys.tables t \n"
+                + "    ON sysobjects.parent_obj = t.object_id \n"
+                + "\n"
+                + "INNER JOIN sys.schemas s \n"
+                + "    ON t.schema_id = s.schema_id \n"
+                + "WHERE sysobjects.type = 'TR' ";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                String trigger_owner = (rs.getString("trigger_owner"));
+                String table_schema = (rs.getString("table_schema"));
+                String table_name = (rs.getString("table_name"));
+                String isupdate = (rs.getString("isupdate"));
+                String isdelete = (rs.getString("isdelete"));
+                String isinsert = (rs.getString("isinsert"));
+                String isafter = (rs.getString("isafter"));
+                String isinsteadof = (rs.getString("isinsteadof"));
+                String disabled = (rs.getString("disabled"));
+                listQuery.add(new QueryTrigger(trigger_owner, trigger_owner, table_schema, table_name, isupdate, isdelete, isinsert, isafter, isinsteadof, disabled));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("e" + e.getMessage());
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
+        }
+        return listQuery;
+    }
 
     public List<QueryConstrains> getQueryConstrains(Connection con)
             throws SQLException {

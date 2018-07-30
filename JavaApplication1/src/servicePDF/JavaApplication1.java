@@ -31,5 +31,9 @@ public class JavaApplication1 {
             System.out.println("itemsConstrains" + item.toString());
         });
 
+        pdf.getTriggers(da.probarconexion()).forEach(item -> {
+            System.out.println("triggers" + item.toString());
+        });
+
     }
 }
