@@ -6,7 +6,9 @@
 package servicePDF;
 
 import conexionSQL.Datosconexion;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
 
 /**
  *
@@ -17,12 +19,14 @@ public class JavaApplication1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JRException, SQLException {
         // TODO code application logic here
 
         Datosconexion da = new Datosconexion();
         ToPDF pdf = new ToPDF();
-        pdf.getPDF(da.probarconexion());
-        
+        pdf.getQuery1(da.probarconexion()).forEach(item -> {
+            System.out.println("itemsQuery1:" + item.toString());
+        });
+
     }
 }
