@@ -14,21 +14,15 @@ import java.sql.ResultSet;
  * @author Edgar
  */
 public class Datosconexion extends Conexion {
-    Connection cn = cadena_conexion();
-    
-    public int  probarconexion(){
-        int conexion=0;
+
+    public Connection probarconexion() {
         try {
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            ps=cn.prepareStatement("select COUNT(*) from authors");
-            rs=ps.executeQuery();
-            if(rs.next()){
-                conexion=1;
-            }
+            Connection cn = cadena_conexion();
+            return cn;
         } catch (Exception e) {
         }
-        return conexion;
+        return null;
+
     }
-        
+
 }
