@@ -8,6 +8,7 @@ package servicePDF;
 import conexionSQL.Datosconexion;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import pantallas.PantallaInicio;
 //import net.sf.jasperreports.engine.JRException;
 
 /**
@@ -22,7 +23,9 @@ public class JavaApplication1 {
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
 
-        Datosconexion da = new Datosconexion();
+        PantallaInicio inicio = new PantallaInicio();
+        inicio.setVisible(true);
+        /*Datosconexion da = new Datosconexion();
         GetListofQuery pdf = new GetListofQuery();
         pdf.getQuery1(da.probarconexion()).forEach(item -> {
             System.out.println("itemsQuery1:" + item.toString());
@@ -34,6 +37,6 @@ public class JavaApplication1 {
         pdf.getTriggers(da.probarconexion()).forEach(item -> {
             System.out.println("triggers" + item.toString());
         });
-
+*/
     }
 }

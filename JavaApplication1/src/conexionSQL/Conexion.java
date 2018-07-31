@@ -16,8 +16,24 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     
-    public Connection cadena_conexion(){
+    //public String nombre;
+    //public String clave;
+    /*public Conexion(String nombre, String clave)
+    {
+        this.nombre = nombre;
+        this.clave = clave;
+    }*/
+    
+    public Connection cadena_conexion(String nombre, String clave){
         Connection cn = null; 
+        String server;
+        String nombreBase;
+        String windowsAut;
+        String nombreServidor;
+        String nombreUsuario;
+        
+        String cadenaConexion="jdbc:sqlserver://localhost;databaseName=pubs1;";
+        
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1;integratedSecurity=true","DESKTOP-2PCUVK0","");

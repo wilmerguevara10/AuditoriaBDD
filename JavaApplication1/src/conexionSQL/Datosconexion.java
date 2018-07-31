@@ -15,9 +15,9 @@ import java.sql.ResultSet;
  */
 public class Datosconexion extends Conexion {
 
-    public Connection probarconexion() {
+    public Connection probarconexion(String nombre, String clave) {
         try {
-            Connection cn = cadena_conexion();
+            Connection cn = cadena_conexion(nombre, clave);
             return cn;
         } catch (Exception e) {
         }
