@@ -26,17 +26,18 @@ public class Conexion {
     
     public Connection cadena_conexion(String nombre, String clave){
         Connection cn = null; 
-        String server;
-        String nombreBase;
-        String windowsAut;
-        String nombreServidor;
-        String nombreUsuario;
+        String server="jdbc:sqlserver://localhost;";
+        String nombreBase="databaseName=pubs1;";
+        String windowsAut="integratedSecurity=true";
+        String nombreServidor=""+nombre;
+        String nombreUsuario=""+clave;
         
-        String cadenaConexion="jdbc:sqlserver://localhost;databaseName=pubs1;";
-        
+        String cadenaConexion=server+nombreBase+windowsAut;
+        System.out.println("cadena de conexion:"+cadenaConexion);
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1;integratedSecurity=true","DESKTOP-2PCUVK0","");
+            cn= DriverManager.getConnection(cadenaConexion,nombreServidor,"");
+            //cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1;integratedSecurity=true","DESKTOP-2PCUVK0","");
             JOptionPane.showMessageDialog(null, "Conectado");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Problema al conectar");
