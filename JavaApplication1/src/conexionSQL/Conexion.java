@@ -7,6 +7,8 @@ package conexionSQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -18,9 +20,10 @@ public class Conexion {
         Connection cn = null; 
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1","sa","lamia1231719");
+            cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1;integratedSecurity=true","DESKTOP-2PCUVK0","");
+            JOptionPane.showMessageDialog(null, "Conectado");
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, "Problema al conectar");
         }
         return cn;
     }   
