@@ -34,18 +34,25 @@ public class PantallaInicio extends javax.swing.JFrame  {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblAutenticacionWindows = new javax.swing.JLabel();
+        lblAutenticacionSql = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        txtClave = new javax.swing.JPasswordField();
-        jSeparator1 = new javax.swing.JSeparator();
+        btnConectar = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jPanel3 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator1 = new javax.swing.JSeparator();
+        txtClave = new javax.swing.JPasswordField();
+        lblNombreDeBase = new javax.swing.JLabel();
+        txtNombreBase = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        lblNombreDeUsuario = new javax.swing.JLabel();
+        lblClave = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -54,15 +61,37 @@ public class PantallaInicio extends javax.swing.JFrame  {
         jPanel1.setBackground(new java.awt.Color(89, 199, 198));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Key_32px.png"))); // NOI18N
-        jLabel1.setText("Autenticación de Windows");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        lblAutenticacionWindows.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutenticacionWindows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Key_32px.png"))); // NOI18N
+        lblAutenticacionWindows.setText("Autenticación de Windows");
+        lblAutenticacionWindows.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAutenticacionWindowsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAutenticacionWindowsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAutenticacionWindowsMouseExited(evt);
+            }
+        });
+        jPanel1.add(lblAutenticacionWindows, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Database_Administrator_32px.png"))); // NOI18N
-        jLabel2.setText("Autenticación de Sql Server");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        lblAutenticacionSql.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutenticacionSql.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Database_Administrator_32px.png"))); // NOI18N
+        lblAutenticacionSql.setText("Autenticación de Sql Server");
+        lblAutenticacionSql.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAutenticacionSqlMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAutenticacionSqlMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAutenticacionSqlMouseExited(evt);
+            }
+        });
+        jPanel1.add(lblAutenticacionSql, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_48px_1.png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,7 +101,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
         });
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 460));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 490));
 
         jPanel2.setBackground(new java.awt.Color(36, 46, 68));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,27 +110,30 @@ public class PantallaInicio extends javax.swing.JFrame  {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Server_52px.png"))); // NOI18N
         jLabel3.setText("CONECTAR AL SERVIDOR");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText("NOMBRE DE USUARIO");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, 40));
-
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setText("CONTRASEÑA");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, 40));
-
-        txtNombre.setBackground(new java.awt.Color(36, 46, 68));
-        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombre.setText("Ingrese su nombre de usuario o del servidor");
-        txtNombre.setBorder(null);
-        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConectar.setBackground(new java.awt.Color(89, 199, 198));
+        btnConectar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnConectar.setForeground(new java.awt.Color(255, 255, 255));
+        btnConectar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Computers_Connecting_32px.png"))); // NOI18N
+        btnConectar.setText("Conectar");
+        btnConectar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNombreMouseClicked(evt);
+                btnConectarMouseClicked(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 320, 50));
+        btnConectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConectarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnConectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
+
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 320, 10));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 320, -1));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 320, 10));
 
         txtClave.setBackground(new java.awt.Color(36, 46, 68));
         txtClave.setForeground(new java.awt.Color(204, 204, 204));
@@ -112,35 +144,71 @@ public class PantallaInicio extends javax.swing.JFrame  {
                 txtClaveMouseClicked(evt);
             }
         });
-        jPanel2.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 320, 40));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 320, 10));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 320, 10));
+        jPanel3.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 320, 30));
 
-        jButton1.setBackground(new java.awt.Color(89, 199, 198));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Computers_Connecting_32px.png"))); // NOI18N
-        jButton1.setText("Conectar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblNombreDeBase.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreDeBase.setText("NOMBRE DE LA BASE");
+        jPanel3.add(lblNombreDeBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 30));
+
+        txtNombreBase.setBackground(new java.awt.Color(36, 46, 68));
+        txtNombreBase.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombreBase.setText("Ingrese el nombre de la base de datos");
+        txtNombreBase.setBorder(null);
+        txtNombreBase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                txtNombreBaseMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+        jPanel3.add(txtNombreBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 310, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 480, 460));
+        txtNombre.setBackground(new java.awt.Color(36, 46, 68));
+        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombre.setText("Ingrese su nombre de usuario o del servidor");
+        txtNombre.setBorder(null);
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 30));
+
+        lblNombreDeUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        lblNombreDeUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreDeUsuario.setText("NOMBRE DE USUARIO");
+        jPanel3.add(lblNombreDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
+
+        lblClave.setForeground(new java.awt.Color(255, 255, 255));
+        lblClave.setText("CONTRASEÑA");
+        jPanel3.add(lblClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 30));
+
+        jLayeredPane1.add(jPanel3);
+        jPanel3.setBounds(30, 20, 340, 260);
+        jPanel3.setVisible(false);
+
+        jPanel4.setBackground(new java.awt.Color(36, 46, 68));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Database_Administrator_104px_1.png"))); // NOI18N
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 120, 140));
+
+        jLayeredPane1.add(jPanel4);
+        jPanel4.setBounds(0, 0, 400, 300);
+
+        jPanel2.add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 420, 290));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 480, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnConectarActionPerformed
 
     private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
         // TODO add your handling code here:
@@ -152,19 +220,74 @@ public class PantallaInicio extends javax.swing.JFrame  {
         txtClave.setText("");
     }//GEN-LAST:event_txtClaveMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnConectarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConectarMouseClicked
         // TODO add your handling code here:
         String nombre = txtNombre.getText();
         String clave = txtClave.getText();
+        String nombreBase = txtNombreBase.getText();
         System.out.println("Nombre:"+nombre+"\nClave:"+clave);
         Datosconexion da = new Datosconexion();
-        da.probarconexion(nombre, clave);
-    }//GEN-LAST:event_jButton1MouseClicked
+        da.probarconexion(nombre, clave, nombreBase);
+    }//GEN-LAST:event_btnConectarMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void lblAutenticacionWindowsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionWindowsMouseEntered
+        // TODO add your handling code here:
+        //lblAutenticacionWindows.setIcon("/img/icons8_Server_52px.png");
+        lblAutenticacionWindows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Key_40px.png")));
+    }//GEN-LAST:event_lblAutenticacionWindowsMouseEntered
+
+    private void lblAutenticacionWindowsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionWindowsMouseExited
+        // TODO add your handling code here:
+        lblAutenticacionWindows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Key_32px.png")));
+    }//GEN-LAST:event_lblAutenticacionWindowsMouseExited
+
+    private void lblAutenticacionSqlMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionSqlMouseEntered
+        // TODO add your handling code here:
+        lblAutenticacionSql.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Database_Administrator_40px_1.png")));
+        //lblAutenticacionSql.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Database_Administrator_40px1.png")));
+    }//GEN-LAST:event_lblAutenticacionSqlMouseEntered
+
+    private void lblAutenticacionSqlMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionSqlMouseExited
+        // TODO add your handling code here:
+        lblAutenticacionSql.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Database_Administrator_32px.png")));
+    }//GEN-LAST:event_lblAutenticacionSqlMouseExited
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtNombreBaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreBaseMouseClicked
+        // TODO add your handling code here:
+        txtNombreBase.setText("");
+    }//GEN-LAST:event_txtNombreBaseMouseClicked
+
+    private void lblAutenticacionWindowsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionWindowsMouseClicked
+        // TODO add your handling code here:
+        jPanel4.setVisible(false);
+        jPanel3.setVisible(true);
+        lblNombreDeUsuario.setText("NOMBRE DEL SERVIDOR");
+        txtNombre.setText("Ingrese el nombre del servidor");
+        lblClave.setVisible(false);
+        txtClave.setVisible(false);
+        jSeparator3.setVisible(false);
+        
+    }//GEN-LAST:event_lblAutenticacionWindowsMouseClicked
+
+    private void lblAutenticacionSqlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionSqlMouseClicked
+        // TODO add your handling code here:
+        jPanel4.setVisible(false);
+        jPanel3.setVisible(true);
+        lblNombreDeUsuario.setText("NOMBRE DE USUARIO");
+        txtNombre.setText("Ingrese el nombre de usuario");
+        lblClave.setVisible(true);
+        txtClave.setVisible(true);
+        jSeparator3.setVisible(true);
+    }//GEN-LAST:event_lblAutenticacionSqlMouseClicked
 
     /**
      * @param args the command line arguments
@@ -202,18 +325,25 @@ public class PantallaInicio extends javax.swing.JFrame  {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnConectar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblAutenticacionSql;
+    private javax.swing.JLabel lblAutenticacionWindows;
+    private javax.swing.JLabel lblClave;
+    private javax.swing.JLabel lblNombreDeBase;
+    private javax.swing.JLabel lblNombreDeUsuario;
     private javax.swing.JPasswordField txtClave;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreBase;
     // End of variables declaration//GEN-END:variables
 }

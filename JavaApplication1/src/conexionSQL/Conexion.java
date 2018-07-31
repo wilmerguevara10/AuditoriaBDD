@@ -24,10 +24,10 @@ public class Conexion {
         this.clave = clave;
     }*/
     
-    public Connection cadena_conexion(String nombre, String clave){
+    public Connection cadena_conexion(String nombre, String clave, String nombreBase){
         Connection cn = null; 
         String server="jdbc:sqlserver://localhost;";
-        String nombreBase="databaseName=pubs1;";
+        nombreBase="databaseName="+nombreBase+";";
         String windowsAut="integratedSecurity=true";
         String nombreServidor=""+nombre;
         String nombreUsuario=""+clave;
