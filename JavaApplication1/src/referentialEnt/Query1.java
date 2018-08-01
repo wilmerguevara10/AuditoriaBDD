@@ -102,5 +102,4 @@ public class Query1 {
     public String toString() {
         return "Query1{" + "tableName=" + tableName + ", column=" + column + ", dataType=" + dataType + ", maxLength=" + maxLength + ", precision=" + precision + ", scale=" + scale + ", is_nullable=" + is_nullable + ", primaryKey=" + primaryKey + '}';
     }
-
 }

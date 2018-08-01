@@ -150,6 +150,8 @@ public class GetListofQuery {
                 String is_nullable = (rs.getString("is_nullable"));
                 listQuery1.add(new Query1(tableName, column, scale, maxLength, precision, scale, is_nullable, scale));
             }
+            
+            
 
         } catch (SQLException e) {
             System.out.println("e" + e.getMessage());

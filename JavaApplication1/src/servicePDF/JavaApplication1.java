@@ -9,6 +9,7 @@ import conexionSQL.Datosconexion;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
+import referentialEnt.Query1;
 
 /**
  *
@@ -25,6 +26,7 @@ public class JavaApplication1 {
         Datosconexion da = new Datosconexion();
         GetListofQuery pdf = new GetListofQuery();
         pdf.getQuery1(da.probarconexion()).forEach(item -> {
+            
             System.out.println("itemsQuery1:" + item.toString());
         });
         pdf.getQueryConstrains(da.probarconexion()).forEach(item -> {
