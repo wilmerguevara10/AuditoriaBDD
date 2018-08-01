@@ -22,6 +22,8 @@ import referentialEnt.Query1;
 public class tablaGUI extends javax.swing.JFrame {
     
     DefaultTableModel modeloLista = new DefaultTableModel();
+    DefaultTableModel modeloLista1 = new DefaultTableModel();
+    DefaultTableModel modeloLista2 = new DefaultTableModel();
 
     /**
      * Creates new form tablaGUI
@@ -47,12 +49,18 @@ public class tablaGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setText("Lista");
+        jLabel1.setText("Lista Tablas");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,27 +72,78 @@ public class tablaGUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel2.setText("Lista Constraints");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable2);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel3.setText("Lista Triggers");
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(437, Short.MAX_VALUE)
+                .addContainerGap(368, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(420, 420, 420))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(357, 357, 357)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane3))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,11 +186,12 @@ public class tablaGUI extends javax.swing.JFrame {
     
     public void llenarTabla() throws SQLException{
      
-        
+ //Arreglo para fila y columna de Jtable1       
         ArrayList<Object> columna = new ArrayList<Object>();
         ArrayList<Object[]> fila = new ArrayList<Object[]>();
-        Query1 query1 = new Query1();
-        
+        //Query1 query1 = new Query1();
+ ///////////////////////////////////////////////////////////////// 
+ ///////Nombres de los campos de la tabla
         columna.add("tableName");
         columna.add("column");
         columna.add("dataType");
@@ -140,35 +200,130 @@ public class tablaGUI extends javax.swing.JFrame {
         columna.add("scale");
         columna.add("is_nullable");
         columna.add("primaryKey");
-        
+///////////////////////////////////////////////////////////////////  
+//llenado del modelo por cada elemento del arreglo
         for (Object col : columna) {
             modeloLista.addColumn(col);
         }
-        
+///////////////////////////////
+//agregar el modelo a la interfaz grafica
         this.jTable1.setModel(modeloLista);
-        
-        
+//////////////////////////////////////
+//instanciar a la conexiòn y a la clase getListofQuery con los datos de la consulta
         Datosconexion da = new Datosconexion();
         GetListofQuery pdf = new GetListofQuery();
+///////////////////////////////////////////////////////////////
+//iteramos con el metodo forEach los elementos de la clase
         pdf.getQuery1(da.probarconexion()).forEach(item -> {
-            Object[] query = new Object[]{query1.getTableName(),
-                query1.getColumn(),
-                query1.getDataType(),
-                query1.getMaxLength(),
-                query1.getPrecision(),
-                query1.getScale(),
-                query1.getIs_nullable(),
-                query1.getPrimaryKey()};
+            Object[] query = new Object[]{item.getTableName(),
+                item.getColumn(),
+                item.getDataType(),
+                item.getMaxLength(),
+                item.getPrecision(),
+                item.getScale(),
+                item.getIs_nullable(),
+                item.getPrimaryKey()};
+////////////////////////////////////////////////////
+//Agregamos el query en el arreglo fila
             fila.add(query);
             System.out.println("itemsQuery1:" + item.toString());
         });
+/////////////////////////////////////////////////////
+//en un foeach recorremos cada elemento agregado al arreglo fila y se lo agrega al modelo
         for (Object row[] : fila) {
             modeloLista.addRow(row);
         }
-        
-        
-        
+////////////////////////////////////////////////////////
+//agregamos el moddelo a la interfaz gràfica        
         this.jTable1.setModel(modeloLista);
+        
+////////////////////////////////////////////////////////////
+//realizamos el mismo proceso que al principio esta vez agregamos a los arreglos y demas el numero 1 para los constraints
+        ArrayList<Object> columna1 = new ArrayList<Object>();
+        ArrayList<Object[]> fila1 = new ArrayList<Object[]>();
+        
+        columna1.add("tableName");
+        columna1.add("columnName");
+        columna1.add("name");
+        columna1.add("definition");
+        
+         for (Object col : columna1) {
+            modeloLista1.addColumn(col);
+        }
+         
+         this.jTable2.setModel(modeloLista1);
+         
+
+          pdf.getQuery1(da.probarconexion()).forEach(item -> {
+            Object[] query = new Object[]{item.getTableName(),
+                item.getColumn(),
+                item.getDataType(),
+                item.getMaxLength(),
+                item.getPrecision(),
+                item.getScale(),
+                item.getIs_nullable(),
+                item.getPrimaryKey()};
+////////////////////////////////////////////////////
+//Agregamos el query en el arreglo fila
+            fila1.add(query);
+            System.out.println("itemsQuery1:" + item.toString());
+        });
+/////////////////////////////////////////////////////
+//en un foeach recorremos cada elemento agregado al arreglo fila y se lo agrega al modelo
+        for (Object row[] : fila1) {
+            modeloLista1.addRow(row);
+        }
+////////////////////////////////////////////////////////
+//agregamos el moddelo a la interfaz gràfica        
+        this.jTable2.setModel(modeloLista1);
+        
+////////////////////////////////////////////////////////////
+//realizamos el mismo proceso que al principio esta vez agregamos a los arreglos y demas el numero 1 para los constraints
+        ArrayList<Object> columna2 = new ArrayList<Object>();
+        ArrayList<Object[]> fila2 = new ArrayList<Object[]>();
+        
+        columna2.add("trigger_name");
+        columna2.add("trigger_owner");
+        columna2.add("table_schema");
+        columna2.add("table_name");
+        columna2.add("isupdate");
+        columna2.add("isdelete");
+        columna2.add("isinsert");
+        columna2.add("isafter");
+        columna2.add("isinsteadof");
+        columna2.add("disabled");
+        
+         for (Object col : columna2) {
+            modeloLista2.addColumn(col);
+        }
+         
+         this.jTable3.setModel(modeloLista2);
+         
+         
+         pdf.getTriggers(da.probarconexion()).forEach(item -> {
+            Object[] query = new Object[]{item.getTrigger_name(),
+                item.getTrigger_owner(),
+                item.getTable_schema(),
+                item.getTable_name(),
+                item.getIsupdate(),
+                item.getIsdelete(),
+                item.getIsinsert(),
+                item.getIsafter(),
+                item.getIsinsteadof(),
+                item.getDisabled()                
+                };
+////////////////////////////////////////////////////
+//Agregamos el query en el arreglo fila
+            fila2.add(query);
+        });
+         
+        for (Object row[] : fila2) {
+            modeloLista2.addRow(row);
+        }
+        
+        this.jTable3.setModel(modeloLista2);   
+  //////////////////////////////////////////////////////////////////
+  //prints
         pdf.getQueryConstrains(da.probarconexion()).forEach(item -> {
             System.out.println("itemsConstrains" + item.toString());
         });
@@ -180,7 +335,13 @@ public class tablaGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
