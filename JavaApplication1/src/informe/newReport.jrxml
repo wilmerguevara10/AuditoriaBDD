@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="newReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fde46c9e-0f1f-4236-849e-e08cee46dc6e">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fde46c9e-0f1f-4236-849e-e08cee46dc6e">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -68,7 +68,9 @@ INNER JOIN
 WHERE
     i.is_primary_key = 1 and 
     so.xtype = 'U'
-Order By 'Table Name', 'Column Name']]>
+Order By 'Table Name', 'Column Name'
+
+]]>
 		</queryString>
 		<field name="Table Name" class="java.lang.String"/>
 		<field name="Column Name" class="java.lang.String"/>
@@ -107,7 +109,9 @@ INNER JOIN
 WHERE
     i.is_primary_key = 1 and 
     so.xtype = 'U'
-Order By 'Table Name', 'Column Name']]>
+Order By 'Table Name', 'Column Name'
+
+]]>
 		</queryString>
 		<field name="Table Name" class="java.lang.String"/>
 		<field name="Column Name" class="java.lang.String"/>
@@ -119,7 +123,7 @@ Order By 'Table Name', 'Column Name']]>
 		<field name="Primary Key" class="java.lang.Boolean"/>
 	</subDataset>
 	<queryString>
-		<![CDATA[SELECT 
+		<![CDATA[ SELECT 
     so.name 'Table Name',
     c.name 'Column Name',
     t.Name 'Data type',
@@ -141,7 +145,8 @@ INNER JOIN
 WHERE
     i.is_primary_key = 1 and 
     so.xtype = 'U'
-Order By 'Table Name', 'Column Name']]>
+Order By 'Table Name', 'Column Name'
+]]>
 	</queryString>
 	<field name="Table Name" class="java.lang.String"/>
 	<field name="Column Name" class="java.lang.String"/>
