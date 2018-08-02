@@ -18,6 +18,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
     /**
      * Creates new form PantallaInicio
      */
+    boolean boolAutenticacionWindows;
     public PantallaInicio() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -227,7 +228,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
         String nombreBase = txtNombreBase.getText();
         System.out.println("Nombre:"+nombre+"\nClave:"+clave);
         Datosconexion da = new Datosconexion();
-        da.probarconexion(nombre, clave, nombreBase);
+        da.probarconexion(nombre, clave, nombreBase, boolAutenticacionWindows);
     }//GEN-LAST:event_btnConectarMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -275,6 +276,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
         lblClave.setVisible(false);
         txtClave.setVisible(false);
         jSeparator3.setVisible(false);
+        boolAutenticacionWindows = true;
         
     }//GEN-LAST:event_lblAutenticacionWindowsMouseClicked
 
@@ -287,6 +289,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
         lblClave.setVisible(true);
         txtClave.setVisible(true);
         jSeparator3.setVisible(true);
+        boolAutenticacionWindows = false;
     }//GEN-LAST:event_lblAutenticacionSqlMouseClicked
 
     /**
