@@ -45,7 +45,7 @@ public class Conexion {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 cn= DriverManager.getConnection(cadenaConexion,nombreServidor,"");
                 //cn= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=pubs1;integratedSecurity=true","DESKTOP-2PCUVK0","");
-                JOptionPane.showMessageDialog(null, "Conectado");
+                //JOptionPane.showMessageDialog(null, "Conectado");
             }
             catch(Exception e)
             {

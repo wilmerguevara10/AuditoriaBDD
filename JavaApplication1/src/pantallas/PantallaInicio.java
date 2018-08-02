@@ -229,6 +229,9 @@ public class PantallaInicio extends javax.swing.JFrame  {
         System.out.println("Nombre:"+nombre+"\nClave:"+clave);
         Datosconexion da = new Datosconexion();
         da.probarconexion(nombre, clave, nombreBase, boolAutenticacionWindows);
+        this.setVisible(false);
+        tablaGUI tabla = new tablaGUI(nombre, clave, nombreBase, boolAutenticacionWindows);
+        tabla.setVisible(true);
     }//GEN-LAST:event_btnConectarMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
