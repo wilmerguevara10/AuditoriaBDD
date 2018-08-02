@@ -40,6 +40,7 @@ public class tablaGUI extends javax.swing.JFrame {
      */
     public tablaGUI(String nombre, String clave, String nombreBase, boolean autenticacionWindows) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.nombre = nombre;
         this.clave = clave;
         this.nombreBase = nombreBase;
@@ -75,7 +76,7 @@ public class tablaGUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        lblRegresar = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -152,6 +153,12 @@ public class tablaGUI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 50, 50));
 
@@ -160,6 +167,12 @@ public class tablaGUI extends javax.swing.JFrame {
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
             }
         });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -175,17 +188,28 @@ public class tablaGUI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
         });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 50, 50));
 
-        jButton4.setBackground(new java.awt.Color(26, 29, 40));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Back_64px.png"))); // NOI18N
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Back_64px_1.png"))); // NOI18N
+        lblRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                lblRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRegresarMouseExited(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, 50));
+        jPanel2.add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 620));
 
@@ -264,12 +288,53 @@ public class tablaGUI extends javax.swing.JFrame {
         exportarExcel(tabla, nombrePestania);
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Microsoft_Excel_40px.png")));
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // TODO add your handling code here:
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Microsoft_Excel_40px.png")));
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Microsoft_Excel_40px.png")));
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Microsoft Excel_32px_5.png")));
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        // TODO add your handling code here:
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Microsoft Excel_32px_5.png")));
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Microsoft Excel_32px_5.png")));
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void lblRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseClicked
         // TODO add your handling code here:
         PantallaInicio inicio = new PantallaInicio();
         this.setVisible(false);
         inicio.setVisible(true);
-    }//GEN-LAST:event_jButton4MouseClicked
+
+    }//GEN-LAST:event_lblRegresarMouseClicked
+
+    private void lblRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseEntered
+        // TODO add your handling code here:
+        lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Back_64px.png")));
+    }//GEN-LAST:event_lblRegresarMouseEntered
+
+    private void lblRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseExited
+        // TODO add your handling code here:
+        lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Back_64px_1.png")));
+    }//GEN-LAST:event_lblRegresarMouseExited
 
     /**
      * @param args the command line arguments
@@ -460,7 +525,6 @@ public class tablaGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -473,5 +537,6 @@ public class tablaGUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JLabel lblRegresar;
     // End of variables declaration//GEN-END:variables
 }

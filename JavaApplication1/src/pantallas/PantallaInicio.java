@@ -37,7 +37,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
         jPanel1 = new javax.swing.JPanel();
         lblAutenticacionWindows = new javax.swing.JLabel();
         lblAutenticacionSql = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblCerrar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btnConectar = new javax.swing.JButton();
@@ -94,13 +94,19 @@ public class PantallaInicio extends javax.swing.JFrame  {
         });
         jPanel1.add(lblAutenticacionSql, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_48px_1.png"))); // NOI18N
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_48px_2.png"))); // NOI18N
+        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                lblCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCerrarMouseExited(evt);
             }
         });
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(lblCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 490));
 
@@ -234,10 +240,10 @@ public class PantallaInicio extends javax.swing.JFrame  {
         tabla.setVisible(true);
     }//GEN-LAST:event_btnConectarMouseClicked
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_lblCerrarMouseClicked
 
     private void lblAutenticacionWindowsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutenticacionWindowsMouseEntered
         // TODO add your handling code here:
@@ -295,6 +301,16 @@ public class PantallaInicio extends javax.swing.JFrame  {
         boolAutenticacionWindows = false;
     }//GEN-LAST:event_lblAutenticacionSqlMouseClicked
 
+    private void lblCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseEntered
+        // TODO add your handling code here:
+        lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_48px_1.png")));
+    }//GEN-LAST:event_lblCerrarMouseEntered
+
+    private void lblCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseExited
+        // TODO add your handling code here:
+        lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_48px_2.png")));
+    }//GEN-LAST:event_lblCerrarMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -334,7 +350,6 @@ public class PantallaInicio extends javax.swing.JFrame  {
     private javax.swing.JButton btnConectar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -345,6 +360,7 @@ public class PantallaInicio extends javax.swing.JFrame  {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblAutenticacionSql;
     private javax.swing.JLabel lblAutenticacionWindows;
+    private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblNombreDeBase;
     private javax.swing.JLabel lblNombreDeUsuario;
