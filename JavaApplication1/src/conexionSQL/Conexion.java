@@ -27,7 +27,7 @@ public class Conexion {
     public Connection cadena_conexion(String nombre, String clave, String nombreBase, boolean autenticacionWindows){
         Connection cn = null; 
         String server="jdbc:sqlserver://localhost;";
-        nombreBase="databaseName="+nombreBase+";";
+        nombreBase= nombreBase+";";
         
         String windowsAut="";
             //String windowsAut="integratedSecurity=true";
