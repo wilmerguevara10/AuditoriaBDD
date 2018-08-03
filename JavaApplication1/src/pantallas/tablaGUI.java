@@ -442,15 +442,12 @@ public class tablaGUI extends javax.swing.JFrame {
          this.jTable2.setModel(modeloLista1);
          
 
-          pdf.getQuery1(da.probarconexion(nombre, clave, nombreBase, autenticacionWindows)).forEach(item -> {
+          pdf.getQueryConstrains(da.probarconexion(nombre, clave, nombreBase, autenticacionWindows)).forEach(item -> {
             Object[] query = new Object[]{item.getTableName(),
-                item.getColumn(),
-                item.getDataType(),
-                item.getMaxLength(),
-                item.getPrecision(),
-                item.getScale(),
-                item.getIs_nullable(),
-                item.getPrimaryKey()};
+                item.getColumnName(),
+                item.getName(),
+                item.getDefinition(),
+                };
 ////////////////////////////////////////////////////
 //Agregamos el query en el arreglo fila
             fila1.add(query);

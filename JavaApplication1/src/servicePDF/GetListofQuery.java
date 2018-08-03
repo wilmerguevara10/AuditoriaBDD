@@ -148,7 +148,8 @@ public class GetListofQuery {
                 String precision = (rs.getString("precision"));
                 String scale = (rs.getString("scale"));
                 String is_nullable = (rs.getString("is_nullable"));
-                listQuery1.add(new Query1(tableName, column, scale, maxLength, precision, scale, is_nullable, scale));
+                String primaryKey = (rs.getString("Primary Key"));
+                listQuery1.add(new Query1(tableName, column, scale, maxLength, precision, scale, is_nullable, primaryKey));
             }
 
         } catch (SQLException e) {
